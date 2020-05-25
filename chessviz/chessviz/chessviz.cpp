@@ -1,6 +1,6 @@
 ﻿// chessviz.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
-
+#include <stdlib.h>
 #include <iostream>
 char board[8][8];
 char abcIdx[8] = {'a','b','c','d','e','f','g','h'};
@@ -57,6 +57,15 @@ void initBoard()
 }
 int main()
 {
+    setlocale(LC_ALL, "rus");
     initBoard();
-    printBoard();
+    std::string input;
+    do
+    {
+        system("CLS");
+        printBoard();
+        printf("\nВведите ход или 'n' для выхода'\n");
+        scanf("%s", input.c_str());
+    } while (strcmp (input.c_str(),"n")!=0);
+    
 }
